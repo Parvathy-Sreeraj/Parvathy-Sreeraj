@@ -1,0 +1,227 @@
+<app-header></app-header>
+    <h1>My Advertisements</h1>
+    <span>
+    <div class="row g-0">
+        <div class="col g-0">
+            <div class="leftside d-flex">
+                <form class="d-flex">
+                    <section class="example-listing">
+                        <mat-card class="post-card" *ngFor="let ads of adv; let i = index;">
+                            <mat-card-title-group>
+                                <mat-card-title>{{ads.title}}</mat-card-title>
+                                <mat-card-subtitle>{{ads.maincity}}</mat-card-subtitle>
+                                <mat-card-subtitle>{{ads.localcity}}</mat-card-subtitle>
+                                <img mat-card-sm-image [src]="ads.image">
+                            </mat-card-title-group>
+                            <a  class="action-btn" style="color: darkblue;">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a style="color: darkblue;">Delete</a><br><br>
+                           
+                            <div class="container">
+                                <div class="row g-0">
+                                    <div class="col g-0">
+                                        <form>
+                                            <h3>Add To Cart</h3>
+                                        </form>
+                                    </div>
+                                   <div class="col g-0">
+                                     <form>
+                                        <button mat-button class="button1" color="accent" mat-raised-button (click)="addtocart1(ads)">Top Ad ₹1</button>
+                                    </form>
+                                  </div>
+                                  <div class="col g-0">
+                                    <form>
+                                        <button mat-button color="primary" mat-raised-button (click)="addtocart2(ads)">Gallery Ad ₹2</button><br><br>
+                                    </form>
+                                  </div>
+                                  <div class="col g-0">
+                                    <form>
+                                        <button mat-button color="warn" mat-raised-button (click)="addtocart3(ads)">Premium Ad ₹3</button><br><br>
+                                    </form>
+                                 </div>
+                            </div>
+                        </div>
+                        </mat-card>
+                    </section>
+                </form>
+            </div>
+        </div>
+        <div class="col g-0">
+            <div class="rightside d-flex">
+                <form class="rightside d-flex">
+                    <section class="amount-calc">
+                        <mat-card class="amount-card" align="center">
+                            <mat-card-title>TOTAL AMOUNT</mat-card-title><br>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Duration</mat-label>
+                                    <mat-select [(value)]="selected">
+                                    <mat-option *ngFor="let week of duration" [value]="week.value">
+                                    {{week.viewValue}}
+                                    </mat-option>
+                                    </mat-select>
+                                </mat-form-field> 
+                                <mat-form-field>
+                                    <input matInput id="days" name="week" placeholder="Duration of days" value={{selected}}>
+                                </mat-form-field>
+                                <button mat-stroked-button color="accent" (click)="totalAmount()">Submit Plan</button>
+                            <mat-form-field appearance="outline">
+                                <input matInput id="amt" name="amount" placeholder="Total Amount" value={{this.amount}}>
+                            </mat-form-field><br>
+                            <button mat-stroked-button color="accent" [routerLink]="['/shoppingcart', emailid]">GO TO SHOPPING CART >></button>
+                        </mat-card>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</span>
+
+                           <!--  <div class="row g-0">
+                                <div class="col g-0">ADD TO CART
+                                    <section class="cart-section" align="leftside" >
+                                  section class="cart-section" align="leftside" *ngFor="let CheckD of CheckData; let i=index"  {{CheckD.name}}
+                                        <label class="cart">
+                                    <input type="checkbox" [value]="CheckD.value" (change)="onCheckboxChange($event)">&nbsp;&nbsp;
+                                    <span class="checkmark"></span>
+                                    </label>
+                                  <mat-checkbox color="accent" [value]="CheckData.value" (change)="onCheckboxChange($event)"></mat-checkbox>&nbsp;&nbsp;  -->
+                                   <!--  <button mat-button color="accent" mat-raised-button>ADD TO CART</button><br><br>
+                             
+                            <input type="checkbox" color="accent" [value]="CheckData.value" (change)="onCheckboxChange($event)"/>
+                            <mat-checkbox color="accent" [(ngModel)]="item.isChecked" (change)="changeSelection($event)"></mat-checkbox>&nbsp;&nbsp; 
+                            <button mat-button color="accent" mat-raised-button>{{item.id}}</button>&nbsp;&nbsp;&nbsp;&nbsp; 
+                                    </section>
+                                </div>
+                            </div> -->
+   
+
+    
+
+<!--
+<input [(ngModel)]="checkboxValue" (change)="newFunction()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+add checkboxValue:boolean; and newFunction() to your summary.component.ts
+
+I don't exactly understand what you want to do but you can code any logic you want in that function accordingly. It would be something like this.
+
+export class SummaryComponent implements OnInit
+{
+    empInfo: EmpInfo[];
+    selectedIndex = 4;
+    timeVar = " hours";
+    checkboxValue:boolean;
+
+    newFunction()
+    {
+      if(!checkboxValue)
+      {
+        this.timeVar = " days";
+
+        this.empInfo[selectedIndex].PTOCarry = this.empInfo[selectedIndex].PTOCarry / 8;
+      }
+      else
+      {
+        this.timeVar = " hours";
+        //actually this else part shouldn't be needed
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <app-header></app-header>
+    <h1>My Advertisements</h1>
+    <span>
+    <div class="row g-0">
+        <div class="col g-0">
+            <div class="leftside d-flex">
+                <form class="d-flex">
+                    <section class="example-listing">
+                        <mat-card class="post-card" *ngFor="let ads of adv; let i = index;">
+                            <mat-card-title-group>
+                                <mat-card-title>{{ads.title}}</mat-card-title>
+                                <mat-card-subtitle>{{ads.maincity}}</mat-card-subtitle>
+                                <mat-card-subtitle>{{ads.localcity}}</mat-card-subtitle>
+                                <img mat-card-sm-image [src]="ads.image">
+                            </mat-card-title-group>
+                            <a routerlink="" style="color: darkblue;">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a routerlink="" style="color: darkblue;">Delete</a><br><br>
+                        
+                            <section class="example-section" align="end center" *ngFor="let item of checkboxesDataList">
+                        
+                           <input [(ngModel)]="checkboxValue" (change)="newFunction()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> 
+            
+                           <mat-checkbox color="warn" [(ngModel)]="item.isChecked" (change)="changeSelection($event)"></mat-checkbox>&nbsp;&nbsp;
+                           <button mat-button color="warn" mat-raised-button>{{item.id}}</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                          <mat-checkbox [(ngModel)]="item.isChecked" (change)="changeSelection()" name="Ad" value="599"></mat-checkbox>&nbsp;&nbsp;
+                           <button mat-button color="accent" mat-raised-button>Top Ad ₹499</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <mat-checkbox color="primary" name="Ad" value="599" [(ngModel)]="item.isChecked" (change)="changeSelection()" name="Ad" value="599"></mat-checkbox>&nbsp;&nbsp;
+                           <button mat-button color="primary" mat-raised-button>Premium Ad ₹599</button>
+                           </section>
+                       </mat-card>
+                   </section>
+               </form>
+           </div>
+       </div>    
+       <div class="col g-0">
+           <div class="rightside d-flex">
+               <form class="rightside d-flex">
+                   <section class="amount-calc">
+                       <mat-card class="amount-card" align="center">
+                           <mat-card-title>TOTAL AMOUNT</mat-card-title><br>
+                           <mat-form-field appearance="outline">
+                               <input matInput name="amount">
+                           </mat-form-field><br>
+                           <button mat-stroked-button color="accent">GO TO SHOPPING CART >></button>
+                       </mat-card>
+                   </section>
+               </form>
+           </div>
+       </div>
+   </div>
+   </span>
+
+  -->
+
+
+<!--
+<input [(ngModel)]="checkboxValue" (change)="newFunction()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+add checkboxValue:boolean; and newFunction() to your summary.component.ts
+
+I don't exactly understand what you want to do but you can code any logic you want in that function accordingly. It would be something like this.
+
+export class SummaryComponent implements OnInit
+{
+   empInfo: EmpInfo[];
+   selectedIndex = 4;
+   timeVar = " hours";
+   checkboxValue:boolean;
+
+   newFunction()
+   {
+     if(!checkboxValue)
+     {
+       this.timeVar = " days";
+
+       this.empInfo[selectedIndex].PTOCarry = this.empInfo[selectedIndex].PTOCarry / 8;
+     }
+     else
+     {
+       this.timeVar = " hours";
+       //actually this else part shouldn't be needed
+     }
+   }
+
+-->

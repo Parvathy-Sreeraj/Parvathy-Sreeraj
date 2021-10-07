@@ -1,0 +1,41 @@
+
+<head>
+</head>
+<body>
+    <app-header></app-header>
+    <div class="container-fluid">
+        <div class="form-container">
+            <h1>Categories</h1>
+
+            <div class="row g-0">
+                <div class="col g-0">
+                    <div class="leftside d-flex justify-content-center">
+                        <form class="align-self-center" action="" [formGroup]="formGroup" (ngSubmit)="addCategory()">
+                        <mat-label>New Category</mat-label>
+                        <mat-card class="category-card">                                   
+                        <input name="category" formControlName="category" matInput [errorStateMatcher]="matcher">
+                        </mat-card><br>
+                        </form>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                    <button mat-button color="primary" mat-raised-button>Add Category</button><br>
+                    </div> 
+                </div>
+                    
+                <div class="col g-0">
+                    <div class="rightside d-flex justify-content-center">
+                        <form class="align-self-center" action="">
+                        <mat-label>Added Categories</mat-label>
+                        <mat-card class="category-card" *ngFor="let c of cat ; let i = index;">
+                        <input name="category" value="{{c.category}}">
+                        </mat-card><br>
+                        </form>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                    <button mat-button color="primary" mat-raised-button>Refresh</button>
+                    </div> 
+                </div>
+            </div>                
+        </div>    
+    </div>
+</body>

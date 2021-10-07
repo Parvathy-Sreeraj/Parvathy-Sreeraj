@@ -1,0 +1,50 @@
+<div *ngIf="!user" class="row g-0">
+    <div class="col g-0">
+        <div class="leftside d-flex justify-content-center">
+            <form class="align-self-center" action="" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+                <h1><b>Sign In</b></h1>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;<button><i class="bi bi-facebook"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button (onclick)="SignInWithGoogle()"><i class="bi bi-google"></i></button></h1>
+                <p>or use your account</p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input type="text" name="username" formControlName="username" matInput placeholder="Email/Contact Number" [errorStateMatcher]="matcher">
+                </mat-form-field><br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input type="password" name="password" formControlName="password" matInput placeholder="Password" matInput [errorStateMatcher]="matcher">
+                </mat-form-field><br>
+                <p>Forgot your password?</p>
+                <button mat-button color="warn" mat-raised-button type="submit">Sign In</button><br>
+            </form>
+        </div>
+    </div>
+    <div class="col g-0">
+        <div class="rightside d-flex justify-content-center">
+            <form class="align-self-center" action="">
+                <h1><b>Hello, Friend!</b><br></h1>
+                <p>Enter your personal details and start<br> journey with us</p><br>
+                <button mat-raised-button routerLink="/signup">Sign Up</button>
+            </form>
+        </div>
+    </div>    
+</div>
+
+
+    <div *ngIf="user"class="card text-center">
+        <h3 class="card-header">Dashboard</h3>
+        <div class="card-block"></div>
+        <img src="{{user.photoUrl}}" class="card-img-tp img-responsive photo">
+        <div class="card-block">
+            <h4 class="card-title">{{user.name}}</h4>
+            <p class="card-text">{{user.email}}</p>
+        </div>
+        <div class="card-block">
+            <button class="btn btn-social-icon btn-google mx-1" (click)="signOutGoogle()">Signout</button>
+        </div>
+    </div>
+
+    <div *ngIf="isLoginError" class="red-text center error-message">
+        <i class="material-icons">error</i>Incorrect username/password
+    </div>
+

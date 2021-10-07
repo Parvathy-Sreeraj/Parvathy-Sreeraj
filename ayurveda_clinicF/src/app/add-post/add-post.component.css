@@ -1,0 +1,15 @@
+.form-container{
+    margin-top: 50px;
+    max-width: 350px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.example-chip-list {
+    width: 100%;
+}
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}

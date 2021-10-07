@@ -1,0 +1,70 @@
+<header>
+    <mat-toolbar color="primary">
+        <form class="d-flex">
+            <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJ00mg9m-SWPfv60hiDJwJRzoPn4KQ4-vSQ&usqp=CAU">
+            <strong style="font-size: 20px;">App_Name</strong>
+            <button mat-button [matMenuTriggerFor]="menu1">Profile</button>
+            <mat-menu #menu1="matMenu">
+                <button mat-menu-item [routerLink]="['/view-profile',emailid]">View Profile</button>
+                <button mat-menu-item routerLink="['/edit-profile',emailid]">Edit Profile</button>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="menu2">Advertisements</button>
+            <mat-menu #menu2="matMenu">
+                <button mat-menu-item routerLink="/addpost">Post Advertisement</button>
+                <button mat-menu-item routerLink="/postdisplay">View Advertisements</button>
+                <button mat-menu-item [routerLink]="['/myads', emailid]">My Advertisements</button>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="menu3">Payment</button>
+            <mat-menu #menu3="matMenu">
+                <button mat-menu-item routerLink="">Payment Details</button>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="menu4">Settings</button>
+            <mat-menu #menu4="matMenu">
+                <button mat-menu-item routerLink="">Change Password</button>
+                <button mat-menu-item (click)="Logout()">Logout</button>
+            </mat-menu>
+            <button class="btn btn-primary" [routerLink]="['/shoppingcart', emailid]">
+                <i style="font-size: 20px; color: white;" class="fas fa-cart-plus"></i>
+                <div style="font-size: 8px;" class="badge bg-danger"></div>
+            </button>
+        </form>
+    </mat-toolbar>
+</header>
+
+
+
+<!--
+    <div class="row g-0">
+        <div class="col g-0">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <form class="d-flex">
+                        <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJ00mg9m-SWPfv60hiDJwJRzoPn4KQ4-vSQ&usqp=CAU">
+                        <button mat-button [matMenuTriggerFor]="menu1">Profile</button>
+                        <mat-menu #menu1="matMenu">
+                            <button mat-menu-item [routerLink]="['/view-profile',emailid]">View Profile</button>
+                            <button mat-menu-item routerLink="['/edit-profile',emailid]">Edit Profile</button>
+                        </mat-menu>
+                        <button mat-button [matMenuTriggerFor]="menu2">Advertisements</button>
+                        <mat-menu #menu2="matMenu">
+                            <button mat-menu-item routerLink="/addpost">Post Advertisement</button>
+                            <button mat-menu-item routerLink="/postdisplay">View Advertisements</button>
+                            <button mat-menu-item [routerLink]="['/myads',emailid]">My Advertisements</button>
+                            <button mat-menu-item routerLink="">Search Advertisements</button>
+                        </mat-menu>
+                        <button mat-button [matMenuTriggerFor]="menu3">Payment</button>
+                        <mat-menu #menu3="matMenu">
+                            <button mat-menu-item routerLink="">Payment Details</button>
+                        </mat-menu>
+                        <button mat-button [matMenuTriggerFor]="menu4">Settings</button>
+                        <mat-menu #menu4="matMenu">
+                            <button mat-menu-item routerLink="">Change Password</button>
+                            <button mat-menu-item (click)="Logout()">Logout</button>
+                        </mat-menu>
+                    </form>
+                </div>
+            </nav>
+        </div>
+</div>
+<router-outlet></router-outlet>
+-->

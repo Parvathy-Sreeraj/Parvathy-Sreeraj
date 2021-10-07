@@ -1,0 +1,28 @@
+.card {
+    height: 60vh;
+    margin: 25px;
+    padding: 25px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.navbar{
+    background-color: rgb(3, 24, 117);
+    font-size: medium;
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+.cart-card1{
+    width: 700px;
+}
+.bgColor2{
+    background-color: coral;
+    font-size: medium;
+    text-align: center;
+}

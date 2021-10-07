@@ -1,0 +1,89 @@
+<head></head>
+<body>
+    <div class="row g-0">
+        <div class="col g-0">
+            <div class="leftside d-flex justify-content-center">
+                <form class="align-self-center" action="">
+                    <h1><b>Welcome Back!</b><br></h1>
+                    <p>To keep connected with us please login<br> with your personal info</p><br>
+                    <button mat-raised-button routerLink="/login">Sign In</button>
+                </form>
+            </div>
+        </div>
+        <div class="col g-0">
+            <div class="rightside d-flex justify-content-center">
+                <form class="align-self-center" action="">
+                    <h1><b>Create Account</b></h1>
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;<button><i class="bi bi-facebook"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button><i class="bi bi-google"></i></button></h1>
+                  
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input type="name" name="name" [(ngModel)]="userObj.name" matInput placeholder="Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="!nameFormControl.hasError('required')">
+                          Please enter your name
+                        </mat-error>
+                        <mat-error *ngIf="nameFormControl.hasError('required')">
+                          Name is required
+                        </mat-error>
+                      </mat-form-field><br>
+
+                        <mat-form-field appearance="fill">
+                          <mat-label>Email</mat-label>
+                          <input type="email" name="email" [(ngModel)]="userObj.email" matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                          </mat-error>
+                          <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is required
+                          </mat-error>
+                        </mat-form-field><br>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Phone Number</mat-label>
+                            <input type="text" name="phone_one" pattern="^(\+91)[6-9][0-9]{9}$" [(ngModel)]="userObj.phone_one" matInput placeholder="Phone Number" matInput [formControl]="phoneFormControl" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="!phoneFormControl.hasError('required')">
+                              Please enter your phone number starting with +91
+                            </mat-error>
+                            <mat-error *ngIf="phoneFormControl.hasError('required')">
+                              Phone number is required
+                            </mat-error>
+                          </mat-form-field><br>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input type="password" name="password" [(ngModel)]="userObj.password" matInput placeholder="Password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="!passwordFormControl.hasError('required')">
+                              Please enter your password
+                            </mat-error>
+                            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                              Password is required
+                            </mat-error>
+                          </mat-form-field><br>
+                        
+                          <!--
+                            <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label><small class="text-danger">*</small>Name</mat-label>
+                        <input type="text" name="name" [(ngModel)]="userObj.name" matInput placeholder="Name" >
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label><small class="text-danger">*</small>Email</mat-label>
+                        <input name="email" [(ngModel)]="userObj.email" matInput placeholder="Email" type="email">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label><small class="text-danger">*</small>Contact Number</mat-label>
+                        <input type="text" name="phone_one" [(ngModel)]="userObj.phone_one" matInput placeholder="Contact Number">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="fill">
+                        <mat-label><small class="text-danger">*</small>Password</mat-label>
+                        <input type="text" name="password" [(ngModel)]="userObj.password" matInput placeholder="Password">
+                    </mat-form-field><br>
+                          -->
+                    <div class="mx-auto" style="width: 200px;">
+                        <button mat-button color="warn" mat-raised-button (click)="register()">Sign Up</button><br>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
+</body>

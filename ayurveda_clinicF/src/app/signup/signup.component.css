@@ -1,0 +1,18 @@
+.leftside, .rightside{
+  height: 100vh;
+  width: 100%;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;}
+.leftside{
+  background-color: rgb(236, 12, 87);
+  font-weight: bolder;
+  color: white;
+}
+.rightside{
+  background-color:white;
+  font-weight: bolder;
+  color: black;
+}
+.example-full-width {
+  width: 100%;
+}
