@@ -52,16 +52,16 @@
                   <mat-option value="Spa">Spa</mat-option>
                 </mat-select>
               </mat-form-field>
-<!--
+
               <input type="file" (change)="onSelectFiles($event)"><br>
               <div class="row">
                 <div class="column">
                   <img [src]="url" width="100" height="80">
-                //  <input *ngFor="let im of adsImage" name="im">  //
+                  <input *ngFor="let im of adsImage" name="im"> 
                   <input name="image" formControlName="image" value="{{adsImage}}">
                 </div>
               </div>
--->
+
               <editor name="description" formControlName="description" apiKey="xk4ursh66qj6rrxiakp38t0hmzpeihu5e0kkxeyul2jyc0jl" 
               [init]="{
                 height: 300,

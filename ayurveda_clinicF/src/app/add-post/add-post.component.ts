@@ -65,13 +65,13 @@ export class AddPostComponent implements OnInit {
       street: new FormControl("",[Validators.required]),
       tags: new FormControl("",[Validators.required]),
       category: new FormControl("",[Validators.required]),
-     // image: new FormControl("",[Validators.required]),
+      image: new FormControl("",[Validators.required]),
      });
    }
    
     addPostProcess(){
-      //this.adsImage = this.formGroup.value.image.replace('C:\\fakepath\\','');
-      //console.log("4444444444444444444444444444444444444", this.adsImage);
+      this.adsImage = this.formGroup.value.image.replace('C:\\fakepath\\','');
+      console.log("4444444444444444444444444444444444444", this.adsImage);
 
       //const formData = new FormData();
       //for(let img of this.multipleImages){

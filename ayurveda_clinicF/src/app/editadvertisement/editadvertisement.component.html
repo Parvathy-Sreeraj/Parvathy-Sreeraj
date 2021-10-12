@@ -1,10 +1,10 @@
-<!--<app-header></app-header>
+<app-header></app-header>
 <form class="rightside d-flex">
   <section class="example-gallery">     
     <mat-card class="addpostA-card">
       <mat-card class="addpostB-card">
         <div class="form-container">
-          <form class="example-form" [formGroup]="formGroup">
+          <form class="example-form" [formGroup]="formGroup"> <!--(ngSubmit)="editPostProcess()"-->
             <h1>Edit & Update Post</h1>
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Email</mat-label>
@@ -56,9 +56,11 @@
               <input type="file" name="image" formControlName="image" multiple><br>
               <div class="row">
                 <div class="column">
-                <!-- //// <img [src]="url" width="100" height="80"> ////
+                <!--
+                  //// <img [src]="url" width="100" height="80"> ////
               <input *ngFor="let imagepath of imagepaths" name="imagepath" formControlName="imagepath"> 
-                </div>
+              <img mat-card-sm-image [src]="ads.image"> -->
+            </div>
               </div>
 
               <editor name="description" formControlName="description" apiKey="xk4ursh66qj6rrxiakp38t0hmzpeihu5e0kkxeyul2jyc0jl" 

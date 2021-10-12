@@ -2,7 +2,10 @@
     width: 600px;
 }
 .gallery-card {
-    padding: 20px;
-    width: 300px;
-    background-color: darkcyan;
+    width: 400px;
+    background-color: rgb(8, 234, 250);
+}
+.mat-divider-gallery{
+    border-top-width: 2px;
+    border-top-style: dashed;
 }

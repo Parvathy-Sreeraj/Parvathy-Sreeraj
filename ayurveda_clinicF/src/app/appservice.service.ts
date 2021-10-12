@@ -38,9 +38,36 @@ export class AppserviceService {
   //All Post Listing
   getAdsList = (): Promise<any> => {
     return new Promise<any>((resolve, reject) => {
-      this.httpClient.get('http://localhost:3000/api/ads').subscribe(result => {
+      this.httpClient.get('http://localhost:3000/api/ads/posts').subscribe(result => {
         resolve(result);
         console.log("ads list resulttt",result)
+      });
+    })
+  }
+  //Category and location based Post Listing
+  getSearchList = (category: String, location: String): Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+      this.httpClient.get(`http://localhost:3000/api/ads/search/?location=${location}&category=${category}`).subscribe(result => {
+        resolve(result);
+        console.log("Location based ads list resulttt",result)
+      });
+    })
+  }
+  //Location based Post Listing
+  getLocAdsList = (location: String): Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+      this.httpClient.get(`http://localhost:3000/api/ads/location/?location=${location}`).subscribe(result => {
+        resolve(result);
+        console.log("Location based ads list resulttt",result)
+      });
+    })
+  }
+  //category based search
+  getCatAdsList = (category: String): Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+      this.httpClient.get(`http://localhost:3000/api/ads/category/?category=${category}`).subscribe(result => {
+        resolve(result);
+        console.log("Location based ads list resulttt",result)
       });
     })
   }
@@ -55,15 +82,26 @@ export class AppserviceService {
     })
   }
 
-
-  deleteAdsList = (id: string): Promise<any> => {
+  //get post by id
+  getMyAdById = (pid: String): Promise<any> => {
     return new Promise<any>((resolve, reject) => {
-      this.httpClient.delete('http://localhost:3000/api/ads'+id).subscribe(result => {
+      this.httpClient.get(`http://localhost:3000/api/ads/postid/?id=${pid}`).subscribe(result => {
+        resolve(result);
+        console.log("my ads list resulttt",result)
+      });
+    })
+  }
+
+  //Delete post by email and id
+  deletePostById = (post: String) : Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+      this.httpClient.delete(`http://localhost:3000/api/ads/delete/?id=${post}`).subscribe(result => {
         resolve(result);
         console.log("ads delete resulttt",result)
       });
     })
   }
+
   //Single Profile by email
   getSingleProfile = (emailid: string): Promise<any> => {
     return new Promise<any>((resolve, reject) => {

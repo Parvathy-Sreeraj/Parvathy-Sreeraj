@@ -1,5 +1,5 @@
 export class Advertisement {
-    _id: string | undefined;
+    id: string | undefined;
     email: string | undefined;
     title: string | undefined;
     description: string | undefined;

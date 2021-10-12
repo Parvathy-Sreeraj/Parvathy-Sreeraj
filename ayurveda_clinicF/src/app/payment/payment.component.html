@@ -1,0 +1,200 @@
+<app-header></app-header>
+<!--
+<form class="rightside d-flex">
+  <section class="example-gallery">     
+    <mat-card class="addpostA-card">
+      <mat-card class="addpostB-card">
+        <div class="form-container">
+          <form class="example-form" [formGroup]="formGroup" (ngSubmit)="addPostProcess()">
+            <h1>Payment</h1>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Receipient Email</mat-label>
+              <input name="email" formControlName="email" matInput [innerHtml]="emailid" type="email" value="abcd@gmail.com">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Receipient Name</mat-label>
+              <input name="name" formControlName="name" matInput placeholder="name" value="ABCD">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Amount</mat-label>
+              <input name="amount" formControlName="amount" matInput placeholder="Amount" value="{{cashTotal}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Your Email</mat-label>
+              <input name="customer_email" formControlName="customer_email" matInput placeholder="customer E  mail" value="{{emailid}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Your Name</mat-label>
+              <input name="customer_name" formControlName="customer_name" matInput placeholder="customer Name">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >PAY</button>
+          </form>
+        </div>
+      </mat-card>
+    </mat-card>
+  </section>
+</form>
+
+  
+
+
+<div class="header bg-main pb-8 pt-5 pt-md-5">
+
+</div>
+
+<div class="container customcss mt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-5 col-sm-12 col-xs-12 sideborder">
+          <div class="heading text-center">
+            <h1>Give the Perfect Gift</h1>
+            <h5>Send a gift instantly in any amount you choose</h5>
+          </div>
+          <div class="image text-center mb-3" *ngIf="outletDetail">
+            <h3>{{ outletDetail.business_name }}</h3>
+            <img class="img img-responsive images" src="{{ outletDetail.logo.location }}" alt=" outletDetail.logo.location" height="150px" width="250px">
+
+          </div>
+          <div class="footer-text text-justify text-center hideclass">
+            <h5>Your money is safe with us. The money will <br>tranfer to the partner once
+              establishment<br> is in operation and redeem the coupon within<br> validity period.</h5>
+          </div>
+        </div>
+        <div class="col-lg-7 col-sm-12 col-xs-12">
+          <div class="heading">
+            <h1>Gift Card Amount</h1>
+          </div>
+              <div class="form-group">
+                <div class="text-left">
+                  <label class="form-control-label text-left">EGIFT CARD AMOUNT</label>
+                </div>
+                <form #fa (submit)="Procedure(fa.value)">
+                    
+
+                  <div class="row">
+                    <div class="col">
+                      <h3 *ngIf="discounted_value">You Pay: {{ discounted_value }}</h3>
+                    </div>
+                    <div class="col">
+                      <h3>Discount: {{ outletDetail.discount }} %</h3>
+                    </div>
+                  </div>
+
+                  <!-- Text Boxes -->
+
+
+ <!--                     <div class="form-group">
+                        <label class="form-control-label" for="receipient_name">RECEIPIENT NAME</label>
+                        <input type="text" id="receipient_name" name="reciepient_name" #reciepient_name='ngModel'
+                        [(ngModel)]="obj.reciepient_name" class="form-control form-control-alternative" placeholder="RECEIPIENT NAME" >
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-control-label" for="receipient_email">RECEIPIENT EMAIL</label>
+                        <input type="email" id="receipient_email" name="reciepient_email" #reciepient_email='ngModel'
+                        [(ngModel)]="obj.reciepient_email" class="form-control form-control-alternative" placeholder="RECEIPIENT EMAIL">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="form-control-label" for="your_name">YOUR NAME</label>
+                        <input type="text" id="your_name"  name="your_name" #your_name='ngModel'
+                        [(ngModel)]="obj.your_name" class="form-control form-control-alternative" placeholder="YOUR NAME" value="Lucky">
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">YOUR EMAIL</label>
+                        <input type="email" id="your_email" name="your_email" #your_email='ngModel'
+                        [(ngModel)]="obj.your_email" class="form-control form-control-alternative" placeholder="YOUR EMAIL" value="Jesse">
+                      </div>
+
+
+
+                    <div class=" text-center">
+                      <button class="btn btn-primary button-fill" (click)="Procedure($event)">Checkout</button>
+                    </div>
+                  </form>
+
+                  <div class="footer-text text-justify text-center showClass">
+                    <h5>Your money is safe with us. The money will <br>tranfer to the partner once
+                      establishment<br> is in operation and redeem the coupon within<br> validity period.</h5>
+                  </div>
+              </div>
+            </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<ng-template #success>
+  <h2 matDialogTitle>CONTACT DETAILS</h2>
+  <mat-dialog-content>
+    <input matInput
+    placeholder="Mobile Number"
+    class="form-control form-control-alternative"
+    type="tel"
+    name="mobile"/><br>
+    <button class="btn btn-classic">GET OTP</button>
+    <br>
+    <input matInput
+    placeholder="OTP"
+    class="form-control form-control-alternative"
+    type="tel" name="otp"/>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose="confirm" class="btn btn-success">OK</button>
+  </mat-dialog-actions>
+</ng-template>
+
+
+
+<!--
+
+<app-header></app-header>
+<form class="rightside d-flex">
+  <section class="example-gallery">
+    <mat-card class="addpostA-card">
+      <mat-card class="addpostB-card">
+        <div class="form-container">
+          <form class="example-form">
+            <h1>Payment</h1>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Amount</mat-label>
+              <input id="total-amount" name="amount" formControlName="amount" matInput value={{cashTotal}}>
+            </mat-form-field>
+            
+            <button mat-raised-button color="primary">Get Order Id</button>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Order Id</mat-label>
+                <input name="order_id" formControlName="order_id" matInput placeholder="Order Id">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Checkout</button>
+           
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Order Id</mat-label>
+                <input name="order_id2" formControlName="order_id2" matInput placeholder="Order Id">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Payment Id</mat-label>
+                <input name="payment_id" formControlName="payment_id" matInput placeholder="Payment Id">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Signature</mat-label>
+                <input name="signature" formControlName="signature" matInput placeholder="Signature">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">VERIFY</button>
+              
+          </form>
+        </div>
+      </mat-card>
+    </mat-card>
+  </section>
+</form>
+-->

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators, AbstractCon
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { identifierModuleUrl } from '@angular/compiler';
 
 interface Duration {
   value: string;
@@ -17,12 +18,12 @@ interface Duration {
   styleUrls: ['./myads.component.css'],
   providers:[ AppserviceService ]
 })
+
 export class MyadsComponent implements OnInit {
 
   selected = 'days';
   public postList : any ;
   public fixedAmount : any;
-
   public amount = 0;
   public total = 0 ;
   public cashTotal : any;
@@ -46,13 +47,14 @@ export class MyadsComponent implements OnInit {
     this.emailid = localStorage.getItem("emailid");
     console.log("my ads listing ---------------- ", this.emailid)
     this.myAdService.getMyAdsList(this.emailid)
-    .then((response: any) => this.createList(response))
+    .then((response: any) => this.createList(response));
   }
 
   createList(rows: any){
     const advertisement: Advertisement[] = [];    
     rows.data.forEach((element: Advertisement) => {
       advertisement.push(element);
+      console.log("element",element)
     });
     this.adv = advertisement;
     console.log("adv of my ads......",this.adv);
@@ -78,6 +80,10 @@ export class MyadsComponent implements OnInit {
     var y = (<HTMLInputElement>document.getElementById("amt")).value;
     this.amount = +x * +y;
     localStorage.setItem("GrandTotal", JSON.stringify(this.amount));
+  }
+
+  deletePost(post: any){
+    this.myAdService.deletePostById(post);
   }
 
 }

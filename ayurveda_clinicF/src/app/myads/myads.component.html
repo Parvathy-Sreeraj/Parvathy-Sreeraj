@@ -9,33 +9,40 @@
                         <mat-card class="post-card" *ngFor="let ads of adv; let i = index;">
                             <mat-card-title-group>
                                 <mat-card-title>{{ads.title}}</mat-card-title>
-                                <mat-card-subtitle>{{ads.maincity}}</mat-card-subtitle>
-                                <mat-card-subtitle>{{ads.localcity}}</mat-card-subtitle>
+                                <mat-card-subtitle><i class="fas fa-map-marker-alt"></i>{{ads.maincity}}
+                                    <i class="fas fa-map-marker-alt"></i>{{ads.localcity}}
+                                    <i class="fas fa-archway"></i>{{ads.street}}</mat-card-subtitle>
+                                <mat-card-subtitle><i class="fas fa-phone-alt"></i>{{ads.phone_one}}
+                                    <i class="fas fa-phone-alt"></i>{{ads.phone_two}}</mat-card-subtitle>
                                 <img mat-card-sm-image [src]="ads.image">
                             </mat-card-title-group>
-                            <a  class="action-btn" style="color: darkblue;">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a style="color: darkblue;">Delete</a><br><br>
+                           
+                            <mat-card-content><i class="fas fa-globe"></i>{{ads.website}}<i class="fas fa-envelope"></i>{{ads.email}}</mat-card-content>
+                            <mat-card-content [innerHtml]="ads.description"></mat-card-content>
+                            <mat-form-field class="example-chip-list" appearance="fill">
+                                <mat-label>Tags</mat-label>
+                                <mat-chip-list>
+                                  <mat-chip>{{ads.tags}}</mat-chip>
+                                </mat-chip-list>
+                              </mat-form-field> 
+                            <button mat-button routerLink="['/editpost', emailid, {{ads.id}}]"><i class="fas fa-edit"></i></button>
+                            <button mat-button><i class="fas fa-trash-alt"></i></button>
                            
                             <div class="container">
                                 <div class="row g-0">
-                                    <div class="col g-0">
-                                        <form>
-                                            <h3>Add To Cart</h3>
-                                        </form>
-                                    </div>
                                    <div class="col g-0">
                                      <form>
-                                        <button mat-button class="button1" color="accent" mat-raised-button (click)="addtocart1(ads)">Top Ad ₹1</button>
+                                        <button mat-button class="button1" color="accent" mat-raised-button (click)="addtocart1(ads)">Add To Cart : Top Ad ₹1</button>
                                     </form>
                                   </div>
                                   <div class="col g-0">
                                     <form>
-                                        <button mat-button color="primary" mat-raised-button (click)="addtocart2(ads)">Gallery Ad ₹2</button><br><br>
+                                        <button mat-button color="primary" mat-raised-button (click)="addtocart2(ads)">Add To Cart : Gallery Ad ₹2</button><br><br>
                                     </form>
                                   </div>
                                   <div class="col g-0">
                                     <form>
-                                        <button mat-button color="warn" mat-raised-button (click)="addtocart3(ads)">Premium Ad ₹3</button><br><br>
+                                        <button mat-button color="warn" mat-raised-button (click)="addtocart3(ads)">Add To Cart : Premium Ad ₹3</button><br><br>
                                     </form>
                                  </div>
                             </div>

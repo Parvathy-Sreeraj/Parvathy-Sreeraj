@@ -61,6 +61,7 @@ import { AdminheaderComponent } from './adminheader/adminheader.component';
 import { MyadsComponent } from './myads/myads.component';
 import { SingleprofileComponent } from './singleprofile/singleprofile.component';
 import { MycartComponent } from './mycart/mycart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 //import { MyAdsComponent } from './my-ads/my-ads.component';
 
@@ -87,7 +88,8 @@ import { MycartComponent } from './mycart/mycart.component';
     AdminheaderComponent,
     MyadsComponent,
     SingleprofileComponent,
-    MycartComponent
+    MycartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

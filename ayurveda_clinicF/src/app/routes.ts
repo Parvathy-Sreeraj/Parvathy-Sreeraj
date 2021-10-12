@@ -23,8 +23,8 @@ export const appRoutes : Routes = [
     { path : 'profile', component : ProfileComponent },
     { path : 'postdisplay', component : PostDisplayComponent },
     { path : 'myads/:emailid', component : MyadsComponent},
-    { path : 'editpost/:emailid', component : EditadvertisementComponent},
-    { path : 'view-profile/:email', component : SingleprofileComponent},
-    { path : 'edit-profile/:email', component : EditprofileComponent},
+    { path : 'editpost/:emailid/:id', component : EditadvertisementComponent},
+    { path : 'view-profile/:emailid', component : SingleprofileComponent},
+    { path : 'edit-profile/:emailid', component : EditprofileComponent},
     { path : 'shoppingcart/:email', component : MycartComponent},
 ];
